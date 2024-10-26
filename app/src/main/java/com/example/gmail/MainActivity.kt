@@ -14,12 +14,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main) // Layout chính của bạn
+        setContentView(R.layout.activity_main)
 
         recyclerView = findViewById(R.id.recyclerViewEmails)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        // Tạo danh sách email mẫu
         emailList = listOf(
             Email("sender1", "Subject 1", "Preview of email 1", "12:00 PM"),
             Email("sender2", "Subject 2", "Preview of email 2", "1:30 PM"),
@@ -29,11 +28,10 @@ class MainActivity : AppCompatActivity() {
             Email("sender6", "Subject 6", "Preview of email 6", "5:34 AM")
         )
 
-        filteredList = emailList.toMutableList() // Danh sách email hiện tại
+        filteredList = emailList.toMutableList()
         emailAdapter = EmailAdapter(filteredList)
         recyclerView.adapter = emailAdapter
 
-        // Thêm listener cho icon tìm kiếm
         val searchIcon: ImageView = findViewById(R.id.searchIcon)
         searchIcon.setOnClickListener {
 
